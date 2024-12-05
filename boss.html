@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss - Přehled Činností</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto max-w-4xl mt-6 p-4 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Boss - Přehled Činností</h1>
+        
+        <!-- Tlačítka pro změnu měsíce -->
+        <div class="mb-6 flex justify-between items-center">
+            <button onclick="zmenitMesic(-1)" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Předchozí měsíc</button>
+            <span id="aktualniMesic" class="text-xl font-semibold text-gray-700"></span>
+            <button onclick="zmenitMesic(1)" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Další měsíc</button>
+        </div>
+
+        <!-- Grafy o vyčerpání času na objektech -->
+        <div class="mb-8">
+            <canvas id="grafVycerpaniCas" class="w-full h-64"></canvas>
+        </div>
+
+        <!-- Měsíční přehled aktivit -->
+        <div id="mesicniPrehled" class="mb-8">
+            <h2 class="text-lg font-semibold mb-4 text-gray-600">Měsíční přehled aktivit</h2>
+            <button onclick="tiskVsechAktivit('mesicniPrehled')" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 mb-4">Tisk Přehledu</button>
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2">Uživatel</th>
+                        <th class="py-2">Objekt</th>
+                        <th class="py-2">Čas (hodiny)</th>
+                        <th class="py-2">Popis</th>
+                        <th class="py-2">Datum</th>
+                    </tr>
+                </thead>
+                <tbody id="mesicniPrehledTbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Detailní aktivity na objektu -->
+        <div id="detailAktivity" class="mb-8">
+            <h2 class="text-lg font-semibold mb-4 text-gray-600">Detailní aktivity na vybraném objektu</h2>
+            <form id="formObjektMesic" class="space-y-4">
+                <div class="flex flex-col space-y-3">
+                    <select id="objektSelect" class="border p-2 rounded focus:ring focus:ring-yellow-200">
+                        <option value="" disabled selected>Vyberte objekt</option>
+                    </select>
+                    <button type="button" onclick="zobrazAktivityObjektu()" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Zobrazit Aktivity</button>
+                    <button type="button" onclick="tiskVsechAktivit('detailAktivity')" class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Tisk Detailních Aktivit</button>
+                </div>
+            </form>
+            <table class="min-w-full bg-white mt-4">
+                <thead>
+                    <tr>
+                        <th class="py-2">Uživatel</th>
+                        <th class="py-2">Čas (hodiny)</th>
+                        <th class="py-2">Popis</th>
+                        <th class="py-2">Datum</th>
+                    </tr>
+                </thead>
+                <tbody id="detailAktivityTbody"></tbody>
+            </table>
+        </div>
+
+        <div id="notifikaceKontejner" class="fixed top-0 left-0 w-full p-4 flex flex-col items-center z-50"></div>
+
+        <script src="/boss/boss.js"></script>
+    </div>
+</body>
+</html>

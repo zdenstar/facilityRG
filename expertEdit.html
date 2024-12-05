@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Editace - Výkaz Činností</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto max-w-5xl mt-6 p-4 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Expert Editace - Výkaz Činností</h1>
+
+        <!-- Seznam uživatelů -->
+        <div id="seznamUzivatelu" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Editace Uživatelů</h2>
+            <table class="table-auto w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border p-2">ID</th>
+                        <th class="border p-2">Jméno</th>
+                        <th class="border p-2">Akce</th>
+                    </tr>
+                </thead>
+                <tbody id="uzivateleTbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Seznam objektů -->
+        <div id="seznamObjektu" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Editace Objektů</h2>
+            <table class="table-auto w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border p-2">ID</th>
+                        <th class="border p-2">Název</th>
+                        <th class="border p-2">Fond hodin</th>
+                        <th class="border p-2">Akce</th>
+                    </tr>
+                </thead>
+                <tbody id="objektyTbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Seznam záznamů -->
+        <div id="seznamZaznamu" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Editace Záznamů</h2>
+            <table class="table-auto w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border p-2">ID</th>
+                        <th class="border p-2">Uživatel</th>
+                        <th class="border p-2">Objekt</th>
+                        <th class="border p-2">Čas (hodiny)</th>
+                        <th class="border p-2">Popis</th>
+                        <th class="border p-2">Akce</th>
+                    </tr>
+                </thead>
+                <tbody id="zaznamyTbody"></tbody>
+            </table>
+        </div>
+
+        <div id="notifikaceKontejner" class="fixed top-0 left-0 w-full p-4 flex flex-col items-center z-50"></div>
+
+        <!-- Připojení JavaScriptu -->
+        <script src="/expertEdit.js"></script>
+    </div>
+</body>
+</html>

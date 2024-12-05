@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrace - Výkaz Činností</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto max-w-lg mt-6 p-4 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Administrace - Výkaz Činností</h1>
+
+        <!-- Sekce pro přidávání nových uživatelů -->
+        <div id="pridatUzivatele" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Přidat nového uživatele</h2>
+            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                <input type="text" id="novyUzivatel" placeholder="Jméno uživatele" class="border p-2 rounded w-full focus:ring focus:ring-blue-200">
+                <button onclick="pridatUzivatele()" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 w-full sm:w-auto">Přidat</button>
+            </div>
+        </div>
+
+        <!-- Sekce pro přidávání nových objektů -->
+        <div id="pridatObjekt" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Přidat nový objekt</h2>
+            <div class="space-y-3">
+                <input type="text" id="novyObjekt" placeholder="Název objektu" class="border p-2 rounded w-full focus:ring focus:ring-green-200">
+                <input type="number" id="fondHodin" placeholder="Fond hodin za měsíc" class="border p-2 rounded w-full focus:ring focus:ring-green-200">
+                <button onclick="pridatObjekt()" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 w-full">Přidat</button>
+            </div>
+        </div>
+
+        <!-- Sekce pro přiřazení objektu uživateli -->
+        <div id="priraditObjekt" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Přiřadit objekt uživateli</h2>
+            <div class="space-y-3">
+                <label for="objektSelect" class="text-gray-600">Vyberte objekt:</label>
+                <select id="objektSelect" class="border p-2 rounded w-full focus:ring focus:ring-yellow-200">
+                    <option value="" disabled selected>Vyberte objekt</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Seznam uživatelů a objektů -->
+        <div id="seznamUzivatelu" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Seznam uživatelů</h2>
+            <ul id="uzivateleSeznam" class="list-disc pl-5 space-y-3"></ul>
+        </div>
+
+        <div id="seznamObjektu" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Seznam objektů</h2>
+            <ul id="objektySeznam" class="list-disc pl-5 space-y-3"></ul>
+        </div>
+
+        <!-- Seznam uživatelů s přiřazenými objekty -->
+        <div id="seznamPrirazeni" class="mb-6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-600">Přiřazené objekty uživatelům</h2>
+            <ul id="prirazeniSeznam" class="list-disc pl-5 space-y-3"></ul>
+        </div>
+
+        <div id="notifikaceKontejner" class="fixed top-0 left-0 w-full p-4 flex flex-col items-center z-50"></div>
+
+        <!-- Připojení JavaScriptu -->
+        <script src="/admin.js"></script>
+    </div>
+</body>
+</html>

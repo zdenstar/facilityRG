@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadávání Činností</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto max-w-md mt-6 p-4 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Zadávání Činností</h1>
+        <h2 id="uzivatelJmeno" class="text-lg font-semibold mb-4 text-gray-600"></h2>
+        <form id="zadavaniForm" class="space-y-4">
+            <div>
+                <label for="objektSelect" class="block text-gray-600 mb-2">Vyberte objekt:</label>
+                <select id="objektSelect" class="border p-2 rounded w-full focus:ring focus:ring-blue-200">
+                    <option value="" disabled selected>Vyberte objekt</option>
+                </select>
+            </div>
+            <div>
+                <label for="cas" class="block text-gray-600 mb-2">Strávený čas (hodiny, min. 0,5):</label>
+                <input type="number" id="cas" step="0.5" min="0.5" class="border p-2 rounded w-full focus:ring focus:ring-blue-200">
+            </div>
+            <div>
+                <label for="popis" class="block text-gray-600 mb-2">Popis činnosti:</label>
+                <textarea id="popis" rows="3" class="border p-2 rounded w-full focus:ring focus:ring-blue-200"></textarea>
+            </div>
+            <button type="button" onclick="ulozitCinnost()" class="bg-blue-500 text-white p-3 rounded w-full hover:bg-blue-600">Uložit</button>
+        </form>
+
+        <!-- Sekce pro hodiny na objektech -->
+        <div id="hodinyNaObjektech" class="mt-8">
+            <h2 class="text-xl font-semibold mb-4 text-gray-600">Hodiny na objektech</h2>
+            <table class="min-w-full bg-white border">
+                <thead>
+                    <tr>
+                        <th class="p-2 border">Objekt</th>
+                        <th class="p-2 border">Fond hodin</th>
+                        <th class="p-2 border">Vyčerpané hodiny</th>
+                        <th class="p-2 border">Zbývá hodin</th>
+                        <th class="p-2 border">% Vyčerpáno</th>
+                    </tr>
+                </thead>
+                <tbody id="hodinySeznam"></tbody>
+            </table>
+        </div>
+
+        <div id="notifikaceKontejner" class="fixed top-0 left-0 w-full p-4 flex flex-col items-center z-50"></div>
+    </div>
+
+    <!-- Odkaz na správnou cestu k JavaScriptovému souboru -->
+    <script src="/zadavani/zadavani.js"></script>
+</body>
+</html>
